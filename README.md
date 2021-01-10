@@ -1,7 +1,7 @@
 # テーブル
 ## users テーブル
 | column      | Type    | options   |
-|-------------|---------------------|
+|-------------|---------|-----------|
 | email       | string  | NOT NULL  |
 | password    | string  | NOT NULL  |
 | name        | string  | NOT NULL  |
