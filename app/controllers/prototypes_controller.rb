@@ -3,7 +3,6 @@ class PrototypesController < ApplicationController
   before_action :move_to_index , only: [:edit]
   def index
     @prototype = Prototype.includes(:user)
-    # binding.pry
   end
 
   def new
@@ -13,9 +12,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
-      @comment = Comment.new
-      @comments = @prototype.comments.includes(:user)
-      render :show
+      redirect_to root_path
     else
       render :new
     end
