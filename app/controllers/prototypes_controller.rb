@@ -33,9 +33,10 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    @prototype.update(prototype_params)
     if @prototype.update(prototype_params)
-      redirect_to root_path
+      @comment = Comment.new
+      @comments = @prototype.comments.includes(:user)
+      render :show
     else
       render :edit
     end
